@@ -40,4 +40,21 @@ function compareWithScript(userText) {
 
   // Remove punctuation and make lowercase
   const cleanedOriginal = original.replace(/[.,?!;:']/g, '').toLowerCase();
-  const cleanedUser = userText
+  const cleanedUser = userText.replace(/[.,?!;:']/g, '').toLowerCase();
+
+  const originalWords = cleanedOriginal.split(/\s+/);
+  const userWords = cleanedUser.split(/\s+/);
+
+  const displayWords = original.split(' '); // preserve punctuation in display
+
+  let highlighted = '';
+  for (let i = 0; i < originalWords.length; i++) {
+    if (userWords[i] && userWords[i] === originalWords[i]) {
+      highlighted += displayWords[i] + ' ';
+    } else {
+      highlighted += `<mark>${displayWords[i]}</mark> `;
+    }
+  }
+
+  document.getElementById('feedback').innerHTML = highlighted;
+}
