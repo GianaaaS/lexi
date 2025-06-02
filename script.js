@@ -37,17 +37,7 @@ function stopRecognition() {
 
 function compareWithScript(userText) {
   const original = document.getElementById('scriptInput').value.trim();
-  const originalWords = original.split(' ');
-  const userWords = userText.split(' ');
 
-  let highlighted = '';
-  for (let i = 0; i < originalWords.length; i++) {
-    if (userWords[i] && userWords[i].toLowerCase() === originalWords[i].toLowerCase()) {
-      highlighted += originalWords[i] + ' ';
-    } else {
-      highlighted += `<mark>${originalWords[i]}</mark> `;
-    }
-  }
-
-  document.getElementById('feedback').innerHTML = highlighted;
-}
+  // Remove punctuation and make lowercase
+  const cleanedOriginal = original.replace(/[.,?!;:']/g, '').toLowerCase();
+  const cleanedUser = userText
