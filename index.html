@@ -8,16 +8,17 @@
 <body>
   <h1>Lexi - French Practice</h1>
 
-  <p>Original Script:</p>
-  <p id="originalScript">Bonjour, je m'appelle Luna. J'aime le français!</p>
+  <label for="scriptInput">Enter your script:</label><br>
+  <textarea id="scriptInput" rows="4" cols="50" placeholder="Type or paste your script here..."></textarea>
+  <br><br>
 
   <button onclick="startRecognition()">Start Recording</button>
   <button onclick="stopRecognition()">Stop</button>
 
-  <p>Your Speech:</p>
+  <h3>Your Speech:</h3>
   <p id="userSpeech"></p>
 
-  <p>Feedback:</p>
+  <h3>Feedback (yellow = difference):</h3>
   <div id="feedback"></div>
 
   <script src="script.js"></script>
