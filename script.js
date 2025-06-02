@@ -36,7 +36,7 @@ function stopRecognition() {
 }
 
 function compareWithScript(userText) {
-  const original = document.getElementById('originalScript').innerText;
+  const original = document.getElementById('scriptInput').value.trim();
   const originalWords = original.split(' ');
   const userWords = userText.split(' ');
 
